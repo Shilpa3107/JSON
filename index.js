@@ -8,13 +8,13 @@ $("#empid").focus();
 
 function saveRecNo2LS(jsonObj){
     var lvData = JSON.parse(jsonObj.data);
-    localStorage.setltemi("recno",lvData.rec_no);
+    localStorage.setItem("recno",lvData.rec_no);
 
 }
 
 function getEmpIdAsJsonObj(){
     var empid = $('#empid').val();
-    var jsonstr = {
+    var jsonStr = {
         id:empid
     };
     return JSON.stringify(jsonStr);
@@ -22,15 +22,16 @@ function getEmpIdAsJsonObj(){
 
 function fillData(jsonObj){
     saveRecNo2LS(jsonObj);
-    var data = JSON.parse(jsonObj.data).record;
-    $("#empname").val(data.name);
-    $("#empsal").val(data.salary);
-    $("#hra").val(data.hra);
-    $("#da").val(data.da);
-    $("#deduct").val(data.deduction);
+    var record = JSON.parse(jsonObj.data).record;
+    $("#empname").val(record.name);
+    $("#empsal").val(record.salary);
+    $("#hra").val(record.hra);
+    $("#da").val(record.da);
+    $("#deduct").val(record.deduction);
 
 }
 function resetForm(){
+    $("#empid").val(" ");
     $("#empname").val(" ");
     $("#empsal").val(" ");
     $("#hra").val(" ");
@@ -58,7 +59,7 @@ function validateData(){
         $("#empid").focus();
         return " ";
     }
-    if(rmpname === ' '){
+    if(empname === ' '){
         alert("Employee Name is missing");
         $("#empname").focus();
         return " ";
@@ -119,7 +120,7 @@ function saveData(){
     if(jsonStrObj === ' '){
         return " ";
     }
-    var putRequest = createPutRequest(connToken, jsonStrObj, empDBName, empRelationName);
+    var putRequest = createPUTRequest(connToken, jsonStrObj, empDBName, empRelationName);
     jQuery.ajaxSetup({async: false});
     var resJsonObj = executeCommandAtGivenBaseUrl(putRequest, jpdbBaseURL, jpdbIML);
     jQuery.ajaxSetup({async: true});
