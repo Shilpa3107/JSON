@@ -4,6 +4,7 @@ var jpdbIML ="/api/iml";
 var empDBName = "EMP-DB";
 var empRelationName = "EmpData";
 var connToken = "90932765|-31949278686098333|90948455";
+
 $("#empid").focus();
 
 function saveRecNo2LS(jsonObj){
@@ -15,7 +16,7 @@ function saveRecNo2LS(jsonObj){
 function getEmpIdAsJsonObj(){
     var empid = $('#empid').val();
     var jsonStr = {
-        id:empid
+        id: empid
     };
     return JSON.stringify(jsonStr);
 }
@@ -64,33 +65,33 @@ function validateData(){
         $("#empname").focus();
         return " ";
     }
-    if(empsal === " "){
+    if (empsal === " "){
         alert("Employee Salary is missing");
         $("#empsal").focus();
         return " ";
     }
-    if(hra===" "){
+    if (hra===" "){
         alert("HRA is missing");
         $("#hra").focus();
         return " ";
     }
-    if(da===" "){
+    if (da===" "){
         alert("DA is missing");
         $("#da").focus();
         return " ";
     }
-    if(deduct===" "){
+    if (deduct===" "){
         alert("Deduction is missing");
         $("#deduct").focus();
         return " ";
     }
     var jsonStrObj = {
-        id : empid,
-        name : empname,
-        salary : empsal,
-        hra : hra,
-        da : da,
-        deduction : deduct
+        id: empid,
+        name: empname,
+        salary: empsal,
+        hra: hra,
+        da: da,
+        deduction: deduct
     };
     return JSON.stringify(jsonStrObj);
 }
@@ -107,6 +108,7 @@ function getEmp(){
         $("#empname").focus();
     }
     else if(resJsonObj.status === 200){
+        
         $("#empid").prop("disabled",true);
         fillData(resJsonObj);
 
