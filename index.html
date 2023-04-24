@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang = "en">
+<html>
     <head>
         <title>Employee Form Using JPDE</title>
-        <meta charset = "utf-8">
+        <meta charset = "UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <!--jQuery-->
@@ -15,10 +15,10 @@
             <div class= 'page-header text-center'>
                 <h2>Employee Form using the JPDE API</h2>
             </div>
-            <form id = 'empform' method="'get">
+            <form id = 'empform' method="get">
                 <div class='form-group'>
                     <label> Employee ID : </label>
-                    <input type='text' id ='empid' class='form-control' orchange="getEmp()">
+                    <input type='text' id ='empid' class='form-control' onchange="getEmp()">
                 </div>
                 <div class="form-group">
                     <label>Employee Name: </label>
@@ -38,12 +38,12 @@
                 </div>
                 <div class ='form-group'>
                     <label>Deduction : </label>
-                    <input type = "number" id ="deduct" class="form-change">
+                    <input type = "number" id ="deduct" class="form-control">
                 </div>
                 <div class="form-group text-center">
-                    <button type="button" class="btn btn-lg btn-primary" id="'save" onlick="saveData()" disabled>Save</button>
-                    <button type="button" class="btn btn-lg btn-primary" id="'change" onlick="changeData()" disabled>Change</button>
-                    <button type="button" class="btn btn-lg btn-primary" id="'reset" onlick="resetForm()" disabled>Reset</button>
+                    <button type="button" class="btn btn-lg btn-primary" id="save" onclick="saveData()" disabled>Save</button>
+                    <button type="button" class="btn btn-lg btn-primary" id="change" onclick="changeData()" disabled>Change</button>
+                    <button type="button" class="btn btn-lg btn-primary" id="reset" onclick="resetForm()" disabled>Reset</button>
                 </div>
             </form>
             </div>
