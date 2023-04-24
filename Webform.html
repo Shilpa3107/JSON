@@ -67,16 +67,32 @@ empEmail: empEmailVar,
 };
 return JSON.stringify(jsonStrObj);
 }
+function createPUTRequest(connToken, jsonObj, dbName, relName) {
+var putRequest = "{\n"
++ "\"token\" : \""
++ connToken
++ "\","
++ "\"dbName\": \""
++ dbName
++ "\",\n" + "\"cmd\" : \"PUT\",\n"
++ "\"rel\" : \""
++ relName + "\","
++ "\"jsonStr\": \n"
++ jsonObj
++ "\n"
++ "}";
+return putRequest;
+}
     function saveEmployee(){
         var jsonStr = validateAndGetFormData();
 if (jsonStr === "") {
 return;
 }
-var putReqStr = createPUTRequest("90936861|-31948784479254024|90932362",
+var putReqStr = createPUTRequest("90932765|-31949278686098333|90948455",
 jsonStr, "SAMPLE", "EMP-REL");
 alert(putReqStr);
 jQuery.ajaxSetup({async: false});
-var resultObj = executeCommand(putReqStr,
+//var resultObj = executeCommand(putReqStr,
 "http://api.login2explore.com:5577", "/api/iml");
 alert(JSON.stringify(resultObj));
 jQuery.ajaxSetup({async: true});
